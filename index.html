@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 1. 这里替换成您的论文标题 -->
+    <title>X-Distill: Supplementary Material</title>
+    <style>
+        body {
+            font-family: 'Times New Roman', Times, serif; /* 学术论文标准字体 */
+            line-height: 1.6;
+            margin: 0 auto;
+            max-width: 800px;
+            padding: 20px;
+            color: #333;
+            background-color: #fdfdfd;
+        }
+        h1, h2 {
+            font-family: 'Georgia', serif;
+            text-align: center;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+        }
+        .abstract {
+            background-color: #f9f9f9;
+            border-left: 3px solid #ccc;
+            padding: 15px;
+            margin: 20px 0;
+            font-style: italic;
+        }
+        .video-container {
+            margin-bottom: 40px;
+            text-align: center;
+        }
+        video {
+            max-width: 100%;
+            height: auto;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        p {
+            text-align: justify;
+        }
+        .caption {
+            font-size: 0.9em;
+            color: #666;
+            margin-top: 5px;
+            text-align: center;
+        }
+        a {
+            color: #0077c8;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 2. 这里替换成您的论文标题 -->
+    <h1>X-Distill: Cross-Architecture Vision Distillation Enables Data-Efficient Visuomotor Learning</h1>
+    <p style="text-align: center;"><strong>Anonymous Submission - Supplementary Material</strong></p>
+
+    <h2>Abstract</h2>
+    <div class="abstract">
+        <!-- 3. 这里替换成您的论文摘要 -->
+        <p>
+            This is where you paste your paper's abstract. Knowledge distillation aims to transfer knowledge from a large, sophisticated teacher model to a smaller, more efficient student model while preserving performance. Our approach, X-Distill, investigates a direct and computationally efficient paradigm by aligning the final global feature representations of a ViT teacher and a CNN student. This simpler approach aims to imbue a computationally efficient CNN with the powerful, holistic understanding of a large Transformer, providing a highly effective initialization for downstream robotic manipulation tasks.
+        </p>
+    </div>
+
+    <h2>Real-World Experiments</h2>
+
+    <div class="video-container">
+        <h3>Task: Writing "AGI"</h3>
+        <!-- 4. 替换视频文件名和描述 -->
+        <video controls playsinline muted loop>
+            <source src="videos/writing_agi_ours.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <p class="caption">
+            <strong>Video 1: X-Distill (Ours).</strong> The policy successfully writes all three letters, demonstrating its ability to understand the long-horizon task structure.
+        </p>
+    </div>
+    
+    <div class="video-container">
+        <!-- 5. 替换视频文件名和描述 - 这是基线对比的例子 -->
+        <video controls playsinline muted loop>
+            <source src="videos/writing_agi_resnet.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <p class="caption">
+            <strong>Video 2: ResNet-18 (from scratch).</strong> The baseline policy fails by repeatedly writing the letter 'A', indicating an inability to visually differentiate the task stages.
+        </p>
+    </div>
+
+    <div class="video-container">
+        <h3>Task: Pick Cube (Out-of-Domain Generalization)</h3>
+        <!-- 6. 替换视频文件名和描述 -->
+        <video controls playsinline muted loop>
+            <source src="videos/pick_cube_ood.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <p class="caption">
+            <strong>Video 3: X-Distill (Ours).</strong> Our policy successfully picks the cube even when it is placed in novel locations outside the training distribution.
+        </p>
+    </div>
+
+    <!-- 7. 您可以复制上面的 "video-container" 块来添加更多视频 -->
+
+</body>
+</html>
