@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>X-Distill: Project Page</title>
     <style>
-        /* --- 核心修改：注入源自现代学术模板的设计灵感 --- */
         :root {
             --text-color: #333333;
             --title-color: #2c3e50;
@@ -15,7 +14,6 @@
             --border-color: #dee2e6;
         }
         body {
-            /* 使用更现代的字体栈，优先使用系统UI字体 */
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
             line-height: 1.7;
             color: var(--text-color);
@@ -31,9 +29,9 @@
             font-weight: 600;
         }
         h1 { font-size: 2.4em; letter-spacing: -1px; }
-        h2 { font-size: 1.8em; margin-top: 40px; }
-        h3 { font-size: 1.4em; border-bottom: none; margin-top: 30px;}
-        h4 { font-size: 1.1em; border-bottom: none; margin-top: 25px; color: #555; text-align: center; }
+        h2 { font-size: 1.8em; margin-top: 50px; }
+        h3 { font-size: 1.5em; border-bottom: none; margin-top: 40px;}
+        h4 { font-size: 1.2em; border-bottom: none; margin-top: 30px; color: #555; text-align: left; padding-left: 10px; border-left: 3px solid var(--link-color);}
         a {
             color: var(--link-color);
             text-decoration: none;
@@ -72,37 +70,27 @@
             padding: 25px;
             border-radius: 8px;
             border-left: 4px solid var(--link-color);
-        }
-        .video-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-            margin-bottom: 30px;
+            margin-bottom: 50px;
         }
         .video-container {
+            margin-bottom: 30px;
             border: 1px solid var(--border-color);
             border-radius: 8px;
-            padding: 10px;
+            padding: 15px;
             background-color: #fff;
             box-shadow: 0 2px 8px rgba(0,0,0,0.07);
-            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
-            display: flex;
-            flex-direction: column;
-        }
-        .video-container:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         }
         video {
             width: 100%;
             border-radius: 5px;
+            background-color: #000;
         }
         .caption {
-            font-size: 0.9em;
+            font-size: 0.95em;
             color: #555;
             margin-top: 10px;
-            text-align: center;
-            flex-grow: 1;
+            padding: 0 5px;
+            text-align: left;
         }
         .footer {
             text-align: center;
@@ -124,6 +112,7 @@
     <div class="links">
         <a href="#abstract">[Abstract]</a>
         <a href="#real-world">[Real-World Videos]</a>
+        <a href="#analysis">[Qualitative Analysis]</a>
     </div>
 
     <img src="path/to/your/teaser_figure.pdf" alt="Teaser Figure" class="teaser-img">
@@ -136,80 +125,61 @@
 
     <h2 id="real-world">Real-World Experiment Videos</h2>
     
-    <h3>Task: Move Cube</h3>
-    <h4>Main Comparison (ID/OOD)</h4>
-    <div class="video-grid">
-        <div class="video-container"><video controls loop muted playsinline><source src="videos/cube_ours.mp4" type="video/mp4"></video><p class="caption"><b>X-Distill (Ours)</b></p></div>
-        <div class="video-container"><video controls loop muted playsinline><source src="videos/cube_resnet.mp4" type="video/mp4"></video><p class="caption"><b>ResNet-scratch</b></p></div>
-        <div class="video-container"><video controls loop muted playsinline><source src="videos/cube_dino.mp4" type="video/mp4"></video><p class="caption"><b>DINOv2</b></p></div>
-        <div class="video-container"><video controls loop muted playsinline><source src="videos/cube_pi0.mp4" type="video/mp4"></video><p class="caption"><b>$\pi_0$ (SFT)</b></p></div>
-    </div>
-    <h4>Color Generalization</h4>
-    <div class="video-grid" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));">
-        <div class="video-container">
-            <video controls loop muted playsinline><source src="videos/cube_color_ours.mp4" type="video/mp4"></video>
-            <p class="caption"><b>X-Distill (Ours)</b> demonstrates strong generalization to unseen yellow and green cubes.</p>
-        </div>
-        <div class="video-container">
-            <video controls loop muted playsinline><source src="videos/cube_color_baseline_fail.mp4" type="video/mp4"></video>
-            <p class="caption"><b>Representative Baseline Failure:</b> All baselines (ResNet, DINOv2, and $\pi_0$) failed this generalization test. This video shows a typical failure case.</p>
-        </div>
+    <h3>Task 1: Move Cube</h3>
+    <div class="video-container">
+        <video controls loop muted playsinline poster="path/to/your/cube_thumbnail.jpg">
+            <source src="videos/move_cube_comparison.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <p class="caption"><b>4-Way Comparison:</b> A side-by-side comparison of all methods on the Move Cube task. Top-left: ResNet-scratch, Top-right: $\pi_0$ (SFT), Bottom-left: DINOv2, Bottom-right: <b>X-Distill (Ours)</b>.</p>
     </div>
 
-    <h3>Task: Move Brush</h3>
-    <div class="video-grid">
-        <div class="video-container"><video controls loop muted playsinline><source src="videos/brush_ours.mp4" type="video/mp4"></video><p class="caption"><b>X-Distill (Ours)</b></p></div>
-        <div class="video-container"><video controls loop muted playsinline><source src="videos/brush_resnet.mp4" type="video/mp4"></video><p class="caption"><b>ResNet-scratch</b></p></div>
-        <div class="video-container"><video controls loop muted playsinline><source src="videos/brush_dino.mp4" type="video/mp4"></video><p class="caption"><b>DINOv2</b></p></div>
-        <div class="video-container"><video controls loop muted playsinline><source src="videos/brush_pi0.mp4" type="video/mp4"></video><p class="caption"><b>$\pi_0$ (SFT)</b></p></div>
+    <h3>Task 2: Move Brush</h3>
+    <div class="video-container">
+        <video controls loop muted playsinline poster="path/to/your/brush_thumbnail.jpg">
+            <source src="videos/move_brush_comparison.mp4" type="video/mp4">
+        </video>
+        <p class="caption"><b>4-Way Comparison:</b> Side-by-side performance on the Move Brush task, testing for generalization to novel orientations.</p>
     </div>
 
-    <h3>Task: Writing "AGI"</h3>
-    <h4>Main Comparison & Qualitative Analysis</h4>
-     <div class="video-grid">
-        <div class="video-container">
-            <video controls loop muted playsinline><source src="videos/write_ours.mp4" type="video/mp4"></video>
-            <p class="caption"><b>X-Distill (Ours)</b>: Successfully completes the task (Ideal Behavior).</p>
-        </div>
-        <div class="video-container">
-            <video controls loop muted playsinline><source src="videos/write_resnet.mp4" type="video/mp4"></video>
-            <p class="caption"><b>ResNet-scratch</b>: Gets stuck repeatedly writing 'A' (Repetitive Loop).</p>
-        </div>
-        <div class="video-container">
-            <video controls loop muted playsinline><source src="videos/write_dino.mp4" type="video/mp4"></video>
-            <p class="caption"><b>DINOv2</b>: Fails to initiate, showing hesitation (Persistent Hesitation).</p>
-        </div>
-        <div class="video-container">
-            <video controls loop muted playsinline><source src="videos/write_pi0.mp4" type="video/mp4"></video>
-            <p class="caption"><b>$\pi_0$ (SFT)</b>: Also fails with persistent hesitation.</p>
-        </div>
+    <h3>Task 3: Writing "AGI"</h3>
+    <div class="video-container">
+        <video controls loop muted playsinline poster="path/to/your/writing_thumbnail.jpg">
+            <source src="videos/writing_agi_comparison.mp4" type="video/mp4">
+        </video>
+        <p class="caption"><b>4-Way Comparison:</b> Performance on the long-horizon writing task. Note the perseverative behavior (Repetitive Loop) of ResNet-scratch and the failure to initiate (Persistent Hesitation) of DINOv2 and $\pi_0$.</p>
     </div>
     <h4>Robustness to Perturbation</h4>
-    <div class="video-grid" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));">
-        <div class="video-container">
-            <video controls loop muted playsinline><source src="videos/write_perturb_ours.mp4" type="video/mp4"></video>
-            <p class="caption"><b>X-Distill (Ours)</b> robustly adapts to the paper being dragged during writing.</p>
-        </div>
-        <div class="video-container">
-            <video controls loop muted playsinline><source src="videos/write_perturb_resnet.mp4" type="video/mp4"></video>
-            <p class="caption"><b>ResNet-scratch</b> fails to adapt and continues writing in the original location.</p>
-        </div>
+    <div class="video-container">
+        <video controls loop muted playsinline poster="path/to/your/perturb_thumbnail.jpg">
+            <source src="videos/writing_perturb_comparison.mp4" type="video/mp4">
+        </video>
+        <p class="caption"><b>Perturbation Test:</b> A direct comparison showing how X-Distill (right) robustly adapts to the paper being dragged, while ResNet-scratch (left) fails.</p>
     </div>
 
-    <h3>Task: Drawer Open</h3>
-    <div class="video-grid">
-        <div class="video-container"><video controls loop muted playsinline><source src="videos/drawer_ours.mp4" type="video/mp4"></video><p class="caption"><b>X-Distill (Ours)</b></p></div>
-        <div class="video-container"><video controls loop muted playsinline><source src="videos/drawer_resnet.mp4" type="video/mp4"></video><p class="caption"><b>ResNet-scratch</b></p></div>
-        <div class="video-container"><video controls loop muted playsinline><source src="videos/drawer_dino.mp4" type="video/mp4"></video><p class="caption"><b>DINOv2</b></p></div>
-        <div class="video-container"><video controls loop muted playsinline><source src="videos/drawer_pi0.mp4" type="video/mp4"></video><p class="caption"><b>$\pi_0$ (SFT)</b></p></div>
+    <h3>Task 4: Drawer Open</h3>
+    <div class="video-container">
+        <video controls loop muted playsinline poster="path/to/your/drawer_thumbnail.jpg">
+            <source src="videos/drawer_open_comparison.mp4" type="video/mp4">
+        </video>
+        <p class="caption"><b>4-Way Comparison:</b> Performance on the Drawer Open task across various initial positions and drawer states.</p>
     </div>
     
-    <h3>Task: Door Close</h3>
-    <div class="video-grid">
-        <div class="video-container"><video controls loop muted playsinline><source src="videos/door_ours.mp4" type="video/mp4"></video><p class="caption"><b>X-Distill (Ours)</b></p></div>
-        <div class="video-container"><video controls loop muted playsinline><source src="videos/door_resnet.mp4" type="video/mp4"></video><p class="caption"><b>ResNet-scratch</b></p></div>
-        <div class="video-container"><video controls loop muted playsinline><source src="videos/door_dino.mp4" type="video/mp4"></video><p class="caption"><b>DINOv2</b></p></div>
-        <div class="video-container"><video controls loop muted playsinline><source src="videos/door_pi0.mp4" type="video/mp4"></video><p class="caption"><b>$\pi_0$ (SFT)</b></p></div>
+    <h3>Task 5: Door Close</h3>
+    <div class="video-container">
+        <video controls loop muted playsinline poster="path/to/your/door_thumbnail.jpg">
+            <source src="videos/door_close_comparison.mp4" type="video/mp4">
+        </video>
+        <p class="caption"><b>4-Way Comparison:</b> Performance on the Door Close task across various initial positions and door angles.</p>
+    </div>
+
+    <h2 id="analysis">Qualitative Analysis: Saliency Map Visualization</h2>
+    <div class="video-container">
+        <video controls loop muted playsinline poster="path/to/your/saliency_thumbnail.jpg">
+             <!-- 【重要】当您制作好热力图对比视频后，取消下面这行代码的注释 -->
+            <!-- <source src="videos/saliency_map_comparison.mp4" type="video/mp4"> -->
+        </video>
+        <p class="caption"><b>(Coming Soon) 4-Way Saliency Map Comparison:</b> This video will show a side-by-side comparison of the visual attention for all four methods on the "Writing AGI" task, providing insight into why our model succeeds.</p>
     </div>
 
     <div class="footer">
