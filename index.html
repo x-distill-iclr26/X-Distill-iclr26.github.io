@@ -128,7 +128,7 @@
     <h3>Task Setup & Generalization</h3>
     <div class="figure-container">
         <img src="realworld_config.png" alt="Real-world task configurations">
-        <p class="caption"><b>Visualization of configurations for our real-world tasks.</b> The green regions represent the distribution of object/robot configurations seen during training (In-Domain), while the red regions illustrate the novel configurations used for generalization testing (Out-of-Domain).</p>
+        <p class="caption"><b>Visualization of configurations for our real-world tasks.</b> The orange arrow provides a schematic representation of the gripper trajectory as derived from the data. The green regions represent the distribution of object/robot configurations seen during training demonstrations, while the red regions illustrate the novel configurations used for generalization testing.</p>
     </div>
 
     <h3>Task-by-Task Video Results</h3>
@@ -139,21 +139,21 @@
             <source src="videos/move_cube_comparison.mp4" type="video/mp4">
             Your browser does not support the video tag.
         </video>
-        <p class="caption"><b>4-Way Comparison:</b> A side-by-side comparison of all methods on the Move Cube task. Top-left: ResNet-scratch, Top-right: π₀ (SFT), Bottom-left: DINOv2, Bottom-right: <b>X-Distill (Ours)</b>.</p>
+        <p class="caption"><b>4-Way Comparison of Move Cube task</b>.</p>
     </div>
 
     <h4>Task 2: Move Brush</h4>
     <div class="video-container">
         <video controls loop muted playsinline poster="brush_thumbnail.jpg">
             <source src="videos/move_brush_comparison.mp4" type="video/mp4"></video>
-        <p class="caption"><b>4-Way Comparison:</b> Side-by-side performance on the Move Brush task.</p>
+        <p class="caption"><b>4-Way Comparison of Move Brush task</b>.</p>
     </div>
     
     <h4>Task 3: Writing "AGI"</h4>
     <div class="video-container">
         <video controls loop muted playsinline poster="writing_thumbnail.jpg">
             <source src="videos/writing_agi_comparison.mp4" type="video/mp4"></video>
-        <p class="caption"><b>4-Way Comparison:</b> Note the perseverative behavior of ResNet-scratch and the hesitation of DINOv2 and π₀.</p>
+        <p class="caption"><b>4-Way Comparison of Writing "AGI" task</b>.</p>
     </div>
     <div class="video-container">
         <video controls loop muted playsinline poster="perturb_thumbnail.jpg">
@@ -165,14 +165,14 @@
     <div class="video-container">
         <video controls loop muted playsinline poster="drawer_thumbnail.jpg">
             <source src="videos/drawer_open_comparison.mp4" type="video/mp4"></video>
-        <p class="caption"><b>4-Way Comparison:</b> Performance on the Drawer Open task.</p>
+        <p class="caption"><b>4-Way Comparison of Drawer Open task</b>.</p>
     </div>
     
     <h4>Task 5: Door Close</h4>
     <div class="video-container">
         <video controls loop muted playsinline poster="door_thumbnail.jpg">
             <source src="videos/door_close_comparison.mp4" type="video/mp4"></video>
-        <p class="caption"><b>4-Way Comparison:</b> Performance on the Door Close task.</p>
+        <p class="caption"><b>4-Way Comparison of Door Close task</b>.</p>
     </div>
 
 
@@ -181,16 +181,13 @@
     <h3>Feature Space Separability (t-SNE)</h3>
     <div class="figure-container">
         <img src="tsne.png" alt="t-SNE visualization of learned feature spaces">
-        <p class="caption"><b>t-SNE visualization of learned feature spaces on the "Writing AGI" task.</b> Our X-Distill encoder learns three well-separated clusters corresponding to the task's semantic stages (Silhouette Score: 0.472), while baselines fail to form a meaningful structure. This semantic separability is crucial for the policy to accurately identify the current task stage, enabling precise long-horizon planning.</p>
+        <p class="caption"><b>t-SNE visualization of learned feature spaces on the ''Writing AGI'' task.</b>b> Our X-Distill encoder learns to form three distinct clusters corresponding to the task's semantic stages, quantitatively confirming a well-separated feature space with a high Silhouette Score of 0.472, which indicates a high degree of cluster cohesion and separation compared with the baselines. This semantic separability is crucial for the policy to accurately identify the current task stage, enabling precise long-horizon planning for the sequential writing task.</p>
     </div>
 
     <h3>Saliency Map Visualization</h3>
-    <div class="video-container">
-        <video controls loop muted playsinline poster="saliency_thumbnail.jpg">
-             <!-- 【重要】当您制作好热力图对比视频后，取消下面这行代码的注释 -->
-            <!-- <source src="videos/saliency_map_comparison.mp4" type="video/mp4"> -->
-        </video>
-        <p class="caption"><b>(Coming Soon) 4-Way Saliency Map Comparison:</b> This video will show a side-by-side comparison of the visual attention for all four methods on the "Writing AGI" task, providing insight into why our model succeeds.</p>
+    <div class="figure-container">
+        <img src="saliency_map.png" alt="Saliency map comparison">
+        <p class="caption"><b>Saliency map comparison on the ''Writing AGI'' task.</b> We visualize the model's visual focus at the beginning of each writing stage. Our X-Distill encoder correctly shifts its attention from the gripper (before 'A'), to the letter 'A' (before 'G'), and finally to the letter 'G' (before 'I'). Baseline models exhibit diffuse or irrelevant attention.</p>
     </div>
 
     <div class="footer">
